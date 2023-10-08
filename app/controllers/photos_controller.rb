@@ -27,5 +27,19 @@ class PhotosController < ApplicationController
       
     end
 
+    def update
+      photo = Photo.find(params{:id})
+
+      photo[:url] = params[:url] || photo[:url]
+      photo[:name] = params[:name] || photo[:name]
+      photo[:abovewriting] = params[:abovewriting] || photo[:abovewriting]
+      photo[:belowwriting] = params[:belowwriting] || photo[:belowwriting]
+    end
+
+    def destroy
+      photo = Photo.find(params[:id])
+      photo.destroy
+    end
+
   
 end
