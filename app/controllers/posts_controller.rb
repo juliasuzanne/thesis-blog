@@ -6,7 +6,9 @@ class PostsController < ApplicationController
   end
 
   def show
-    posts = Post.find_by(id: params[:id])
+    @post = Post.find_by(id: params[:id])
+    render template: "posts/show"
+
   end
 
   def create

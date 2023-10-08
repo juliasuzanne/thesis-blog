@@ -5,7 +5,9 @@ class PhotosController < ApplicationController
   end
 
   def show
-    photo = Photo.where(post_id: params[:id])
+    @photos = Photo.where(post_id: params[:id])
+    render json: @photos.as_json
+
   end
 
   def create

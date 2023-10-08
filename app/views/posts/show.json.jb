@@ -1,0 +1,7 @@
+{
+  id: @post.id,
+  header: @post.header,
+  date: @post.date,
+  paragraphs: @post.paragraphs,
+  images: @post.images
+}
