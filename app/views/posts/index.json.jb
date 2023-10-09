@@ -1,0 +1,11 @@
+@posts.map do |post|
+
+{
+  id: post.id,
+  header: post.post_header,
+  date: post.posted_date,
+  paragraphs: post.paragraphs,
+  images: post.photos
+}
+
+end

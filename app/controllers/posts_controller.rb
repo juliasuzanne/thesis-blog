@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
-    posts = Post.all
-    render json: posts.as_json
+    @posts = Post.all
+    render template: "posts/index"
   end
 
   def show
