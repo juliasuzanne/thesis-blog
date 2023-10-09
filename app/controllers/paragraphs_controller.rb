@@ -27,6 +27,7 @@ class ParagraphsController < ApplicationController
 
     paragraph[:post_id] = params[:post_id] || paragraph[:post_id]
     paragraph[:writing] = params[:writing] || paragraph[:writing]
+    render json: paragraph.as_json
   end
 
   def destroy

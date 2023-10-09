@@ -11,17 +11,23 @@ class PostsController < ApplicationController
 
   def create
     post = Post.create(
-      header: params[:header],
-      date: params[:date],
+      post_header: params[:post_header],
+      posted_date: params[:posted_date],
     )
-    render json: post.as_json
+    if post.save
+      render json: post.as_json
+    else
+      render json: { errors: post.errors.full_messages },
+             status: :unprocessable_entity
+    end
   end
 
   def update
     post = Post.find_by(id: params[:id])
 
-    post[:header] = params[:header] || post[:header]
-    post[:date] = params[:date] || post[:date]
+    post[:post_header] = params[:post_header] || post[:post_header]
+    post[:posted_date] = params[:posted_date] || post[:posted_date]
+    render json: post.as_json
   end
 
   def destroy

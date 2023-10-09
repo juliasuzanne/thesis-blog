@@ -32,6 +32,7 @@ class PhotosController < ApplicationController
     photo[:name] = params[:name] || photo[:name]
     photo[:abovewriting] = params[:abovewriting] || photo[:abovewriting]
     photo[:belowwriting] = params[:belowwriting] || photo[:belowwriting]
+    render json: photo.as_json
   end
 
   def destroy

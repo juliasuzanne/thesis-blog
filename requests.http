@@ -10,9 +10,18 @@ POST http://localhost:3000/posts.json
 Content-Type: application/json
 
 {
-  "date": "test",
-  "header": "Week Three",
+  "posted_date": "September 13th, 2023",
+  "post_header": "Week Three"
 }
+
+### patch post
+PATCH http://localhost:3000/posts/3.json
+Content-Type: application/json
+
+{
+  "posted_date": "September 13th, 2023"
+}
+
 
 
 
