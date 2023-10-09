@@ -7,37 +7,30 @@ class ParagraphsController < ApplicationController
   def show
     @paragraphs = Paragraph.where(post_id: params[:id])
     render json: @paragraphs.as_json
-
   end
 
   def create
-    paragraph = Paragraph.new(
+    paragraph = Paragraph.create(
       writing: params[:writing],
       post_id: params[:post_id],
     )
     if paragraph.save
-
-    render json: paragraph.as_json
-      
+      render json: paragraph.as_json
     else
-      render json: {errors: paragraph.errors.full_messages},
-      status :unprocessable_entity
+      render json: { errors: paragraph.errors.full_messages },
+             status: :unprocessable_entity
     end
-      
-    end
+  end
 
-    def update
-      paragraph = Paragraph.find(params{:id})
+  def update
+    paragraph = Paragraph.find(params { :id })
 
-      paragraph[:post_id] = params[:post_id] || paragraph[:post_id]
-      paragraph[:writing] = params[:writing] || paragraph[:writing]
-      
-    end
+    paragraph[:post_id] = params[:post_id] || paragraph[:post_id]
+    paragraph[:writing] = params[:writing] || paragraph[:writing]
+  end
 
-    def destroy
-      paragraph = Paragraph.find(params[:id])
-      paragraph.destroy
-    end
-
-
+  def destroy
+    paragraph = Paragraph.find(params[:id])
+    paragraph.destroy
+  end
 end

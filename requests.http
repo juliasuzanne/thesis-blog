@@ -1,0 +1,52 @@
+
+### post index
+GET http://localhost:3000/posts.json
+
+#### post show
+GET http://localhost:3000/posts/1.json
+
+### post create
+POST http://localhost:3000/posts.json
+Content-Type: application/json
+
+{
+  "date": "test",
+  "header": "Week Three",
+}
+
+
+
+### photo create
+POST http://localhost:3000/photos.json
+Content-Type: application/json
+
+{
+  "name": "test 2",
+  "url": "url",
+  "abovewriting": "test for 2",
+  "belowwriting": "test for 2",
+  "post_id": 2
+}
+
+### paragraph create
+POST http://localhost:3000/paragraphs.json
+Content-Type: application/json
+
+
+{
+  "writing": "testing for number 2",
+  "post_id": 2
+}
+
+
+### photos view by post id
+GET http://localhost:3000/photos/1.json
+
+### paragraphs view by post id
+GET http://localhost:3000/paragraphs/1.json
+
+###
+GET http://localhost:3000/photos/2.json
+
+###
+GET http://localhost:3000/paragraphs/2.json

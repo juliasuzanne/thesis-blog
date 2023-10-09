@@ -3,5 +3,5 @@
   header: @post.header,
   date: @post.date,
   paragraphs: @post.paragraphs,
-  images: @post.images
+  images: @post.photos
 }
