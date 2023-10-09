@@ -15,29 +15,28 @@ class ParagraphsController < ApplicationController
       writing: params[:writing],
       post_id: params[:post_id],
     )
-    if photo.save
+    if paragraph.save
 
-    render json: photo.as_json
+    render json: paragraph.as_json
       
     else
-      render json: {errors:photo.errors.full_messages},
+      render json: {errors: paragraph.errors.full_messages},
       status :unprocessable_entity
     end
       
     end
 
     def update
-      photo = Photo.find(params{:id})
+      paragraph = Paragraph.find(params{:id})
 
-      photo[:url] = params[:url] || photo[:url]
-      photo[:name] = params[:name] || photo[:name]
-      photo[:abovewriting] = params[:abovewriting] || photo[:abovewriting]
-      photo[:belowwriting] = params[:belowwriting] || photo[:belowwriting]
+      paragraph[:post_id] = params[:post_id] || paragraph[:post_id]
+      paragraph[:writing] = params[:writing] || paragraph[:writing]
+      
     end
 
     def destroy
-      photo = Photo.find(params[:id])
-      photo.destroy
+      paragraph = Paragraph.find(params[:id])
+      paragraph.destroy
     end
 
 

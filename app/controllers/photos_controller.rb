@@ -31,7 +31,7 @@ class PhotosController < ApplicationController
 
     def update
       photo = Photo.find(params{:id})
-
+      photo[:post_id] = params[:post_id] || photo[:post_id]
       photo[:url] = params[:url] || photo[:url]
       photo[:name] = params[:name] || photo[:name]
       photo[:abovewriting] = params[:abovewriting] || photo[:abovewriting]
