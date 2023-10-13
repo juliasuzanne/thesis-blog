@@ -26,7 +26,7 @@ class PhotosController < ApplicationController
   end
 
   def update
-    photo = Photo.find(params { :id })
+    photo = Photo.find_by(id: params[:id])
     photo[:post_id] = params[:post_id] || photo[:post_id]
     photo[:url] = params[:url] || photo[:url]
     photo[:name] = params[:name] || photo[:name]

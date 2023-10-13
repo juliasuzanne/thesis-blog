@@ -23,7 +23,7 @@ class ParagraphsController < ApplicationController
   end
 
   def update
-    paragraph = Paragraph.find(params { :id })
+    paragraph = Paragraph.find_by(id: params[:id])
 
     paragraph[:post_id] = params[:post_id] || paragraph[:post_id]
     paragraph[:writing] = params[:writing] || paragraph[:writing]
