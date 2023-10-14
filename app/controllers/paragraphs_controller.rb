@@ -24,9 +24,10 @@ class ParagraphsController < ApplicationController
 
   def update
     paragraph = Paragraph.find_by(id: params[:id])
-
-    paragraph[:post_id] = params[:post_id] || paragraph[:post_id]
-    paragraph[:writing] = params[:writing] || paragraph[:writing]
+    paragraph.update(
+      post_id: params[:post_id] || paragraph.post_id,
+      writing: params[:writing] || paragraph.writing,
+    )
     render json: paragraph.as_json
   end
 

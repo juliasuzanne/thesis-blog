@@ -27,11 +27,14 @@ class PhotosController < ApplicationController
 
   def update
     photo = Photo.find_by(id: params[:id])
-    photo[:post_id] = params[:post_id] || photo[:post_id]
-    photo[:url] = params[:url] || photo[:url]
-    photo[:name] = params[:name] || photo[:name]
-    photo[:abovewriting] = params[:abovewriting] || photo[:abovewriting]
-    photo[:belowwriting] = params[:belowwriting] || photo[:belowwriting]
+
+    photo.update(
+      post_id: params[:post_id] || photo.post_id,
+      url: params[:url] || photo.url,
+      name: params[:name] || photo.name,
+      abovewriting: params[:abovewriting] || photo.abovewriting,
+      belowwriting: params[:belowwriting] || photo.belowwriting,
+    )
     render json: photo.as_json
   end
 

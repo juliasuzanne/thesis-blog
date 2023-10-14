@@ -24,8 +24,11 @@ class PostsController < ApplicationController
 
   def update
     post = Post.find_by(id: params[:id])
-    post[:post_header] = params[:post_header] || post[:post_header]
-    post[:posted_date] = params[:posted_date] || post[:posted_date]
+
+    post.update(
+      post_header: params[:post_header] || post.post_header,
+      posted_date: params[:posted_date] || post.posted_date,
+    )
     render json: post.as_json
   end
 
